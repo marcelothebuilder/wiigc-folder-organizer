@@ -1,0 +1,19 @@
+{
+  "name": "wiigc-folder-rename",
+  "version": "1.0.0",
+  "description": "Rename folders adding titleid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcelo Paixão Resende (marcelothebuilder)",
+  "license": "ISC",
+  "dependencies": {
+    "binary-parser": "^1.5.0",
+    "download-file": "^0.1.5",
+    "filenamify": "^4.1.0",
+    "temp": "^0.9.1",
+    "unzipper": "^0.10.10",
+    "xml2js": "^0.4.23"
+  }
+}
