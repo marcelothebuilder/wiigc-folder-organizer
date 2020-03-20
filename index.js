@@ -14,7 +14,7 @@ const root = myArgs[0];
 
 const gameFileRegex = /^game\.\w+$/;
 
-const SortByImagePriority = (a, b) => {
+const sortByImagePriority = (a, b) => {
     if (gameFileRegex.test(a)) {
         return -1;
     }
@@ -22,6 +22,11 @@ const SortByImagePriority = (a, b) => {
         return 1;
     }
     return a.localeCompare(b);
+}
+
+const isDiscFile = file => {
+    const fileLc = file.toLowerCase();
+    return fileLc.endsWith('.iso') || fileLc.endsWith('.wbfs') || fileLc.endsWith('.gcm');
 }
 
 const normalizeDirectories = (wiiTDB) => {
@@ -33,11 +38,8 @@ const normalizeDirectories = (wiiTDB) => {
                     .then(isofiles => {
                         const onlyIso = isofiles
                             .map(file => file)
-                            .filter(file => {
-                                const fileLc = file.toLowerCase();
-                                return fileLc.endsWith('.iso') || fileLc.endsWith('.wbfs') || fileLc.endsWith('.gcm');
-                            })
-                            .sort(SortByImagePriority);
+                            .filter(file => isDiscFile(file))
+                            .sort(sortByImagePriority);
 
                         if (!onlyIso.length) {
                             console.error(isodir);
@@ -52,7 +54,6 @@ const normalizeDirectories = (wiiTDB) => {
                                 const header = DiscHeaderParser(data);
 
                                 const newTitle = filenamify(wiiTDB[header.titleId]) + ` [${header.titleId}]`;
-                                // const newTitle = filenamify(wiiTDB[header.titleId].toLowerCase());
 
                                 const newpathtoisodir = path.join(root, newTitle);
 
