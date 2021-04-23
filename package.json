@@ -13,7 +13,7 @@
     "url": "https://github.com/marcelothebuilder/wiigc-folder-organizer.git"
   },
   "dependencies": {
-    "binary-parser": "^1.5.0",
+    "binary-parser": "^1.8.0",
     "download-file": "^0.1.5",
     "filenamify": "^4.1.0",
     "temp": "^0.9.1",
