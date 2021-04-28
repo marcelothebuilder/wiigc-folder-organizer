@@ -15,7 +15,7 @@
   "dependencies": {
     "binary-parser": "^1.5.0",
     "download-file": "^0.1.5",
-    "filenamify": "^4.1.0",
+    "filenamify": "^4.3.0",
     "temp": "^0.9.1",
     "unzipper": "^0.10.10",
     "xml2js": "^0.4.23"
