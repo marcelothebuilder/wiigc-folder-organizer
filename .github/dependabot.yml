@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "08:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: binary-parser
+    versions:
+    - 1.7.0
+  - dependency-name: filenamify
+    versions:
+    - 4.2.0
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
